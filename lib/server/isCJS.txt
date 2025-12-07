@@ -1,0 +1,35 @@
+ // if (isCJS) {
+        //     // Load the module via require
+        //     const moduleExports = require(modulePath);
+        //     const exportEntries = Object.entries(moduleExports).map(([key, value]) => {
+        //         if (typeof value === 'function') {
+        //             // Functions/classes: serialize as string to eval later
+        //             return `window.__moduleCache['${moduleName}']['${key}'] = eval('(${value.toString()})');`;
+        //         } else {
+        //             // Primitives and objects: JSON.stringify
+        //             return `window.__moduleCache['${moduleName}']['${key}'] = ${JSON.stringify(value)};`;
+        //         }
+        //     }).join('\n');
+
+
+        //     res.type('js').send(`
+        //     const process = { env: { NODE_ENV: 'development' } };
+        //     window.__moduleCache = window.__moduleCache || {};
+        //     window.__moduleCache['${moduleName}'] = {};
+
+        //     ${exportEntries}
+
+        //     ${Object.keys(moduleExports).map(k => `export const ${k} = window.__moduleCache['${moduleName}']['${k}'];`).join('\n')}
+        //     export default window.__moduleCache['${moduleName}'];
+        //     `);
+        //     return;
+        // }
+
+        //  Object.assign(window.__moduleCache['${moduleName}'], ${moduleExports});
+        //     (() => {
+        //     const exports = {};
+        //     ${Object.keys(moduleExports)
+        //             .map(k => `exports['${k}'] = ${moduleExports[k].toString()};`)
+        //             .join('\n')}
+        //     Object.assign(window.__moduleCache['${moduleName}'], exports);
+        //     })();

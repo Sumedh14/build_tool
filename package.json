@@ -1,0 +1,27 @@
+{
+  "name": "cli-tool",
+  "version": "1.0.0",
+  "description": "Cli tool for local and production level build of React",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "rbuild": "./bin/rbuild.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "esbuild": "^0.27.0",
+    "express": "^5.1.0",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "react-refresh": "^0.18.0"
+  }
+}
