@@ -1,41 +1,40 @@
-# Dependencies
-/node_modules/
-*package.lock.json
+# ----------------------------------------------------------------------
+# 1. DEPENDENCIES (node_modules)
+# ----------------------------------------------------------------------
 
-# Build output
-/build/
+# Ignore all node_modules folders, regardless of their location in the project.
+node_modules/
+
+# ----------------------------------------------------------------------
+# 2. LOCK FILES
+# ----------------------------------------------------------------------
+
+# Yarn v1 lock file
+# yarn.lock
+
+# NPM lock file
+
+
+# pnpm lock file
+# pnpm-lock.yaml
+
+# ----------------------------------------------------------------------
+# 3. BUILD OUTPUTS / ARTIFACTS
+# ----------------------------------------------------------------------
+
+# Ignore the common build/distribution directories (like the 'dist' folder)
+# Your build tool creates these, so they should not be tracked by Git.
 /dist/
+/build/
+/out/
 
-# Production bundles
-*.bundle.js
-*.map
+# ----------------------------------------------------------------------
+# 4. TEMP / LOGS / EDITOR FILES
+# ----------------------------------------------------------------------
 
 # Logs
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE files
+# IDE/Editor temporary files (e.g., VS Code)
 .vscode/
 .idea/
-*.swp
-
-# Cache
-/.cache/
-/.tmp/
-/temp/
-
-# Misc
-*.log

@@ -2,6 +2,8 @@
 // import { devServer } from '../lib/dev.js';
 import { devServer } from '../lib/server/index.js';
 // import { prodBuild } from '../lib/build.js';
+import { prodBuild } from '../lib/build/prodBuild.js';
+import { prodRun } from '../lib/prodProject/distProjectRun.js';
 
 const args = process.argv.slice(2);
 const cmd = args[0];
@@ -16,13 +18,20 @@ switch (cmd) {
     case 'dev':
         devServer(artifactPath);
         break;
-    case 'prod':
-        // prodBuild(artifactPath);
+    case 'build':
+        prodBuild(artifactPath);
+        break;
+    case 'prodRun':
+        prodRun(artifactPath);
         break;
     default:
         console.log(`
-            Usage:
-            rbuild dev --artifactPath=/path_to_react_project    "Start dev server"
-            rbuild prod --artifactPath=/path_to_react_project   "Build for production"
+        '${cmd}' not found.
+
+        Usage:
+
+        npm run dev --artifactPath=/path_to_react_project    "Start dev server"
+        npm run build --artifactPath=/path_to_react_project  "Build for production"
+        npm run prod --artifactPath=/path_to_react_project   "Test the build project locally" 
         `);
 };
