@@ -8,7 +8,10 @@
     "rbuild": "./bin/rbuild.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "rbuild dev",
+    "build": "rbuild build",
+    "prod": "rbuild prodRun",
+    "create": "rbuild create"
   },
   "author": "",
   "license": "ISC",
@@ -16,13 +19,12 @@
     "chokidar": "^5.0.0",
     "esbuild": "^0.27.0",
     "express": "^5.1.0",
-    "ws": "^8.18.3"
-  },
-  "devDependencies": {
+    "ws": "^8.18.3",
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
+    "@inquirer/prompts": "^8.0.2",
     "@rollup/plugin-alias": "^6.0.0",
     "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-commonjs": "^29.0.0",
@@ -30,8 +32,12 @@
     "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-url": "^8.0.2",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.2",
+    "inquirer": "^13.0.2",
     "react-refresh": "^0.18.0",
     "rollup": "^4.53.3",
     "rollup-plugin-postcss": "^4.0.2"
-  }
+  },
+  "devDependencies": {}
 }
