@@ -11,7 +11,9 @@
     "dev": "rbuild dev",
     "build": "rbuild build",
     "prod": "rbuild prodRun",
-    "create": "rbuild create"
+    "create": "rbuild create",
+    "test": "node --test tests/**/*.test.js",
+    "test:watch": "node --watch --test tests/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
