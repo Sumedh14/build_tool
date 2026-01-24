@@ -12,30 +12,28 @@ const testProjectRoot = path.join(__dirname, 'fixtures', 'test-project');
 describe('resolveBareImport', () => {
     before(() => {
         // Create test fixtures
-        if (!fs.existsSync(testProjectRoot)) {
-            fs.mkdirSync(path.join(testProjectRoot, 'node_modules', '@scope'), { recursive: true });
-            fs.mkdirSync(path.join(testProjectRoot, 'node_modules', 'simple-pkg'), { recursive: true });
-            
-            // Create package.json files
-            fs.writeFileSync(
-                path.join(testProjectRoot, 'node_modules', 'simple-pkg', 'package.json'),
-                JSON.stringify({ name: 'simple-pkg', main: 'index.js' })
-            );
-            fs.writeFileSync(
-                path.join(testProjectRoot, 'node_modules', 'simple-pkg', 'index.js'),
-                'export default {};'
-            );
+        // Always ensure directories exist
+        fs.mkdirSync(path.join(testProjectRoot, 'node_modules', '@scope', 'scoped-pkg', 'lib'), { recursive: true });
+        fs.mkdirSync(path.join(testProjectRoot, 'node_modules', 'simple-pkg'), { recursive: true });
+        
+        // Create package.json files
+        fs.writeFileSync(
+            path.join(testProjectRoot, 'node_modules', 'simple-pkg', 'package.json'),
+            JSON.stringify({ name: 'simple-pkg', main: 'index.js' })
+        );
+        fs.writeFileSync(
+            path.join(testProjectRoot, 'node_modules', 'simple-pkg', 'index.js'),
+            'export default {};'
+        );
 
-            fs.writeFileSync(
-                path.join(testProjectRoot, 'node_modules', '@scope', 'scoped-pkg', 'package.json'),
-                JSON.stringify({ name: '@scope/scoped-pkg', main: 'lib/index.js' })
-            );
-            fs.mkdirSync(path.join(testProjectRoot, 'node_modules', '@scope', 'scoped-pkg', 'lib'));
-            fs.writeFileSync(
-                path.join(testProjectRoot, 'node_modules', '@scope', 'scoped-pkg', 'lib', 'index.js'),
-                'export default {};'
-            );
-        }
+        fs.writeFileSync(
+            path.join(testProjectRoot, 'node_modules', '@scope', 'scoped-pkg', 'package.json'),
+            JSON.stringify({ name: '@scope/scoped-pkg', main: 'lib/index.js' })
+        );
+        fs.writeFileSync(
+            path.join(testProjectRoot, 'node_modules', '@scope', 'scoped-pkg', 'lib', 'index.js'),
+            'export default {};'
+        );
     });
 
     after(() => {

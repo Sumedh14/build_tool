@@ -1,17 +1,9 @@
 // tests/rewriteImports.test.js
 import { test, describe } from 'node:test';
 import assert from 'node:assert';
+import { rewriteImports } from '../lib/utils/rewriteImports.js';
 
 describe('rewriteImports', () => {
-    function rewriteImports(code) {
-        return code.replace(/((?:^|\n)\s*(?:import|export)[^;]*?\bfrom\s+)['"]([^'".][^'"]*)['"]/gm, (match, prefix, specifier) => {
-            if (!specifier.startsWith('.') && !specifier.startsWith('/')) {
-                return `${prefix}'/@modules/${specifier}'`;
-            }
-            return match;
-        });
-    }
-
     test('should rewrite bare imports', () => {
         const code = `import React from "react";`;
         const result = rewriteImports(code);
